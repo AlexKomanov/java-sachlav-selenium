@@ -13,9 +13,9 @@ public class LoginTest {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         BasePage basePage = new BasePage(driver);
-        basePage.initAndNavigate("https://www.saucedemo.com/");
-
         LoginPage loginPage = new LoginPage(driver);
+        loginPage.initAndNavigate("https://www.saucedemo.com/");
+
 
         loginPage.loginToApp("standard_user", "secret_sauce");
 
