@@ -12,6 +12,8 @@ public class LoginPage extends BasePage {
     private WebElement passwordInput;
     @FindBy(css = "[id=\"login-button\"]")
     private WebElement loginButton;
+    @FindBy(css = "[data-test=\"error\"]")
+    private WebElement errorMessage;
 
 
     public LoginPage(WebDriver driver) {
@@ -22,6 +24,10 @@ public class LoginPage extends BasePage {
         fillText(usernameInput, username);
         fillText(passwordInput, password);
         clickElement(loginButton);
+    }
+
+    public String getErrorMessage() {
+        return getElementText(errorMessage);
     }
 
 }

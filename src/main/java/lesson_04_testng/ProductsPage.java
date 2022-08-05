@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 public class ProductsPage extends BasePage {
 
@@ -14,13 +15,12 @@ public class ProductsPage extends BasePage {
         super(driver);
     }
 
-    public void validateTitle(String text) {
+    public void validateTitle(String expectedText) {
         String titleText = getElementText(title);
-        if (titleText.equalsIgnoreCase(text)) {
-            System.out.println("Title is correct");
-        }
-        else {
-            System.out.println("Title is incorrect");
-        }
+        Assert.assertEquals(titleText, expectedText);
+    }
+
+    public String getTitle() {
+        return getElementText(title);
     }
 }
