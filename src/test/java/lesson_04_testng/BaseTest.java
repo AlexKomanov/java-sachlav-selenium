@@ -4,9 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -30,14 +28,24 @@ public abstract class BaseTest {
 
     }
 
+    @BeforeTest
+    public void beforeTest() {
+        System.out.println("Before Test Block");
+    }
+
 
     @AfterMethod
     public void tearDown() {
         try {
-            Thread.sleep(3000);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
         driver.quit();
+    }
+
+    @AfterTest
+    public void afterTest() {
+        System.out.println("After Test Block");
     }
 }
