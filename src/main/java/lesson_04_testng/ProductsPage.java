@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
-public class ProductsPage extends BasePage {
+public class ProductsPage extends CommonElements {
 
     @FindBy(className = "title")
     WebElement title;

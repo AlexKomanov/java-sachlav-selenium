@@ -16,6 +16,7 @@ public class SuccessTests extends BaseTest {
 
         loginPage.loginToApp(username, password);
         productsPage.validateTitle("PRODUCTS");
+        productsPage.openBurgerMenu();
     }
 
 
